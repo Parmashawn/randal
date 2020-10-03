@@ -1,5 +1,6 @@
 import discord
 import random
+import os
 from discord.ext import commands
 
 client = commands.Bot(command_prefix="r")
@@ -43,6 +44,19 @@ async def roll(ctx):
     rngroll = random.choice([1,2,3,4,5,6])
     print(f"{ctx.author.name} rolled a {rngroll}")
     await ctx.send(f"{ctx.author.name} rolled a {rngroll}")
+
+@client.command()
+async  def gay(ctx):
+    print(f"{ctx.author.name} called rgay")
+    rnggay = random.choice(os.listdir("cgay"))
+    await ctx.send(f"AYO {ctx.author.name} I didn't know you were like that, anyways here you go:",file=discord.File(f"cgay\\{rnggay}"))
+
+@client.command(aliases=['fight','join'])
+async  def fighter(ctx):
+    print(f"{ctx.author.name} called rfighter")
+    rngfighter = random.choice(os.listdir("cfighter"))
+    await ctx.send(file=discord.File(f"cfighter\\{rngfighter}"))
+
 
 
 
