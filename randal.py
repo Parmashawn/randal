@@ -3,6 +3,9 @@ import random
 from discord.ext import commands
 
 client = commands.Bot(command_prefix="r")
+f = open("token.txt", "r")
+token = f.read()
+print(f"Token: {token}")
 
 @client.event
 async def on_ready():
@@ -10,12 +13,12 @@ async def on_ready():
 
 @client.command()
 async def ping(ctx):
-    print("{ctx.author.name} called ping")
+    print(f"{ctx.author.name} called ping")
     await ctx.send("pong")
 
 @client.command(aliases=['rules','commands','command','com'])
 async def rule(ctx):
-    print("{ctx.author.name} called Help")
+    print(f"{ctx.author.name} called Help")
     await ctx.send(f"**All commands start with 'r'** \n"
                     f"*rcommand* - gives list of commands\n"
                     f"*rflip* - flips a coin\n"
@@ -41,10 +44,9 @@ async def roll(ctx):
     print(f"{ctx.author.name} rolled a {rngroll}")
     await ctx.send(f"{ctx.author.name} rolled a {rngroll}")
 
-@client.command()
-async def rgay 
 
 
 
 
-client.run('NzU2NjM1NDg1NjMxNDE0Mjgz.X2UttQ.LXhNH9yakkmE9mERDesAb8UpL4E')
+
+client.run(token)
